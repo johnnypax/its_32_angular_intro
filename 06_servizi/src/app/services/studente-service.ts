@@ -6,7 +6,7 @@ import { Studente } from '../models/studente';
 })
 export class StudenteService {
 
-  elenco: Studente[] = [
+  private elenco: Studente[] = [
     {
       nome: "Luca",
       cognome: "Rossi",
