@@ -1,0 +1,16 @@
+<h3>Elenco invitati</h3>
+
+<ul>
+    <li *ngFor="let inv of elenco">
+        <strong>{{inv}}</strong>
+    </li>
+</ul>
+
+<br />
+
+Nome:
+<input type="text" [(ngModel)]="nome"/>
+
+<button type="button" (click)="aggiungi()">
+    Aggiungi
+</button>
