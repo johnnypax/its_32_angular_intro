@@ -1,1 +1,13 @@
-<p>inserisci works!</p>
+<div class="form-group">
+    <label for="input-nome">Nome</label>
+    <input type="text" class="form-control" [(ngModel)]="nom" id="input-nome" />
+</div>
+<div class="form-group">
+    <label for="input-cognome">Cognome</label>
+    <input type="text" class="form-control" [(ngModel)]="cog" id="input-cognome" />
+</div>
+<div class="form-group">
+    <label for="input-matricola">Matricola</label>
+    <input type="text" class="form-control" [(ngModel)]="mat" id="input-matricola" />
+</div>
+<button type="button" class="btn btn-success" (click)="salva()">Salva</button>
