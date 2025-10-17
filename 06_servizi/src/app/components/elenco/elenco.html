@@ -1,1 +1,16 @@
-<p>elenco works!</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Cognome</th>
+            <th>Matricola</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let s of listastud">
+            <td>{{ s.nome }}</td>
+            <td>{{ s.cognome }}</td>
+            <td>{{ s.matricola }}</td>
+        </tr>
+    </tbody>
+</table>
