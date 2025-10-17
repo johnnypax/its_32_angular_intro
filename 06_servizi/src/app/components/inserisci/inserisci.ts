@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Studente } from '../../models/studente';
+import { StudenteService } from '../../services/studente-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-inserisci',
@@ -14,14 +16,22 @@ export class Inserisci {
   cog?: string
   mat?: number
 
+  constructor(private service: StudenteService, private router: Router) { }
+
   salva(): void{
-    let stu: Studente = {
+    let stud: Studente = {
       nome: this.nom,
       cognome: this.cog,
       matricola: this.mat
     }
 
-    console.log(stu);
+    if(this.service.insert(stud)){
+      alert("STaPPPOOOoO")
+      this.router.navigateByUrl("elenco")
+    }
+      
+    else
+      alert("Errore")
   }
 
 }
