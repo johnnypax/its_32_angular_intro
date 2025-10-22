@@ -8,6 +8,7 @@ export class AnimaleService {
 
   private elenco: Animale[] = [
     {
+      id: 1,
       nome: "Leo",
       specie: "Leone",
       peso: 190,
@@ -15,6 +16,7 @@ export class AnimaleService {
       provenienza: "Africa"
     },
     {
+      id: 2,
       nome: "Polly",
       specie: "Pappagallo",
       peso: 1.2,
@@ -22,6 +24,7 @@ export class AnimaleService {
       provenienza: "Sud America"
     },
     {
+      id: 3,
       nome: "Nemo",
       specie: "Pesce Pagliaccio",
       peso: 0.3,
@@ -29,6 +32,7 @@ export class AnimaleService {
       provenienza: "Oceano Pacifico"
     },
     {
+      id: 4,
       nome: "Luna",
       specie: "Gatto",
       peso: 4.5,
@@ -36,6 +40,7 @@ export class AnimaleService {
       provenienza: "Europa"
     },
     {
+      id: 5,
       nome: "Benny",
       specie: "Orso Polare",
       peso: 450,
@@ -43,5 +48,14 @@ export class AnimaleService {
       provenienza: "Artico"
     }
   ];
+
+  Inserisci(ani: Animale): boolean{
+    this.elenco.push(ani);
+    return true;
+  }
+
+  RestituisciTutti(): Animale[]{
+    return this.elenco;
+  }
 
 }
