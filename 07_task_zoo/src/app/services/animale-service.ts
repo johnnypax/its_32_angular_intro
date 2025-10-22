@@ -50,6 +50,7 @@ export class AnimaleService {
   ];
 
   Inserisci(ani: Animale): boolean {
+    ani.id = this.elenco.length + 1;
     this.elenco.push(ani);
     return true;
   }
