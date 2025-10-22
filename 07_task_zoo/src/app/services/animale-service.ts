@@ -49,13 +49,33 @@ export class AnimaleService {
     }
   ];
 
-  Inserisci(ani: Animale): boolean{
+  Inserisci(ani: Animale): boolean {
     this.elenco.push(ani);
     return true;
   }
 
-  RestituisciTutti(): Animale[]{
+  RestituisciTutti(): Animale[] {
     return this.elenco;
+  }
+
+  CercaPerId(varId: number): Animale | null {
+    for (let [index, item] of this.elenco.entries()) {
+      if (item.id === varId)
+        return item;
+    }
+
+    return null;
+  }
+
+  Elimina(varId: number): boolean {
+    for (let [index, item] of this.elenco.entries()) {
+      if (item.id === varId) {
+        this.elenco.splice(index, 1);
+        return true;
+      }
+    }
+
+    return false;
   }
 
 }

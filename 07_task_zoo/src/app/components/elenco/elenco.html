@@ -1,1 +1,21 @@
-<p>elenco works!</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Specie</th>
+            <th>Nome</th>
+            <th>Peso</th>
+            <th>Peli</th>
+            <th>Prov.</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let a of lista">
+            <td>{{ a.nome }}</td>
+            <td>{{ a.specie }}</td>
+            <td>{{ a.peso }}</td>
+            <td>{{ a.hasPeli }}</td>
+            <td>{{ a.provenienza }}</td>
+        </tr>
+    </tbody>
+</table>
