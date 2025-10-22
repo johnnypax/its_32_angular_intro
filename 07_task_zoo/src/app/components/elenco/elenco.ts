@@ -1,11 +1,28 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { AnimaleService } from '../../services/animale-service';
+import { Animale } from '../../models/animale';
 
 @Component({
   selector: 'app-elenco',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './elenco.html',
   styleUrl: './elenco.css'
 })
 export class Elenco {
+
+  lista: Animale[] = [];
+
+  constructor(private service: AnimaleService){
+
+  }
+
+  ngOnInit() {
+    this.lista = this.service.RestituisciTutti();
+  }
+
+  elimina(id: number){
+    console.log(id)
+  }
 
 }

@@ -7,15 +7,23 @@
             <th>Peso</th>
             <th>Peli</th>
             <th>Prov.</th>
+            <th>Azioni</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let a of lista">
+            <td>{{ a.id }}</td>
             <td>{{ a.nome }}</td>
             <td>{{ a.specie }}</td>
             <td>{{ a.peso }}</td>
-            <td>{{ a.hasPeli }}</td>
+            <td>
+                <span *ngIf="a.hasPeli == true" class="text-primary">SI</span>
+                <span *ngIf="a.hasPeli == false" class="text-danger">NO</span>
+            </td>
             <td>{{ a.provenienza }}</td>
+            <td>
+                <button type="button" (click)="elimina(a.id)" class="btn btn-danger">X</button>
+            </td>
         </tr>
     </tbody>
 </table>
