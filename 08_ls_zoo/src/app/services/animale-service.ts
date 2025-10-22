@@ -6,52 +6,54 @@ import { Animale } from '../models/animale';
 })
 export class AnimaleService {
 
-  constructor() {
+  // constructor() {
+  //   let elencoStringa = localStorage.getItem("zoo");
+  //   if (!elencoStringa)
+  //     localStorage.setItem("zoo", JSON.stringify([]))
+  // }
+
+  private ScaricaElenco(): Animale[]{
     let elencoStringa = localStorage.getItem("zoo");
-    if (!elencoStringa)
+    if (!elencoStringa){
       localStorage.setItem("zoo", JSON.stringify([]))
+      return [];
+    }
+    else{
+      return JSON.parse(elencoStringa);
+    }
   }
 
   RestituisciTutti(): Animale[] {
-    let elencoStringa = localStorage.getItem("zoo");
-    if (elencoStringa) {
-      let elenco: Animale[] = JSON.parse(elencoStringa);
-      return elenco;
-    }
-
-    return [];
+    return this.ScaricaElenco();
   }
 
   Inserisci(ani: Animale): boolean {
-    let elencoStringa = localStorage.getItem("zoo");
-    if (elencoStringa) {
-      let elenco: Animale[] = JSON.parse(elencoStringa);
+      let elenco: Animale[] = this.ScaricaElenco();
       elenco.push(ani);
       localStorage.setItem("zoo", JSON.stringify(elenco));
 
       return true;
-    }
-
-    return false;
-
   }
 
   CercaPerId(varId: number): Animale | null {
-    // for (let [index, item] of this.elenco.entries()) {
-    //   if (item.id === varId)
-    //     return item;
-    // }
+    for (let [index, item] of this.ScaricaElenco().entries()) {
+      if (item.id === varId)
+        return item;
+    }
 
     return null;
   }
 
   Elimina(varId: number): boolean {
-    // for (let [index, item] of this.elenco.entries()) {
-    //   if (item.id === varId) {
-    //     this.elenco.splice(index, 1);
-    //     return true;
-    //   }
-    // }
+    let elenco = this.ScaricaElenco();
+
+    for (let [index, item] of elenco.entries()) {
+      if (item.id === varId) {
+        elenco.splice(index, 1);
+        localStorage.setItem("zoo", JSON.stringify(elenco))
+        return true;
+      }
+    }
 
     return false;
   }
