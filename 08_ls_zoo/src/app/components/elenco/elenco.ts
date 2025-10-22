@@ -18,13 +18,19 @@ export class Elenco {
   }
 
   ngOnInit() {
+    this.Aggiorna();
+  }
+
+  private Aggiorna(): void {
     this.lista = this.service.RestituisciTutti();
   }
 
   elimina(id?: number) {
     if (id) {
-      if (this.service.Elimina(id))
+      if (this.service.Elimina(id)) {
+        this.Aggiorna();
         alert("STAPPOOOOOOOOO")
+      }
       else
         alert("ERRORE")
     }

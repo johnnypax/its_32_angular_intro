@@ -29,6 +29,7 @@ export class AnimaleService {
 
   Inserisci(ani: Animale): boolean {
       let elenco: Animale[] = this.ScaricaElenco();
+      ani.id = elenco.length + 1;
       elenco.push(ani);
       localStorage.setItem("zoo", JSON.stringify(elenco));
 
