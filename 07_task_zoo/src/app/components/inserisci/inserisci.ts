@@ -1,8 +1,12 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { Animale } from '../../models/animale';
+import { AnimaleService } from '../../services/animale-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-inserisci',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './inserisci.html',
   styleUrl: './inserisci.css'
 })
@@ -14,8 +18,25 @@ export class Inserisci {
   pel?: boolean;
   pro?: string;
 
-  salva(): void{
+  constructor(private service: AnimaleService, private router: Router){
 
+  }
+
+  salva(): void{
+    let ani = new Animale();
+    ani.specie = this.spe;
+    ani.nome = this.nom;
+    ani.peso =this.pes;
+    ani.hasPeli = this.pel;
+    ani.provenienza = this.pro;
+
+    if(this.service.Inserisci(ani)){
+      alert("Stappoooo")
+      this.router.navigateByUrl("elenco")
+    }
+      
+    else
+      alert("Errore")
   }
 
 }
