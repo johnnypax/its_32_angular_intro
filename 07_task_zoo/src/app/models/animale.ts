@@ -1,5 +1,5 @@
 export class Animale {
-    id: number = 0
+    id?: number
     nome?: string
     specie?: string
     peso?: number

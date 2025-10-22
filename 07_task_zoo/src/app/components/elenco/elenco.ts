@@ -13,7 +13,7 @@ export class Elenco {
 
   lista: Animale[] = [];
 
-  constructor(private service: AnimaleService){
+  constructor(private service: AnimaleService) {
 
   }
 
@@ -21,8 +21,14 @@ export class Elenco {
     this.lista = this.service.RestituisciTutti();
   }
 
-  elimina(id: number){
-    console.log(id)
+  elimina(id?: number) {
+    if (id) {
+      if (this.service.Elimina(id))
+        alert("STAPPOOOOOOOOO")
+      else
+        alert("ERRORE")
+    }
+
   }
 
 }

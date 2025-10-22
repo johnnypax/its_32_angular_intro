@@ -8,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class Inserisci {
 
+  spe?: string;
+  nom?: string;
+  pes?: number;
+  pel?: boolean;
+  pro?: string;
+
+  salva(): void{
+
+  }
+
 }
