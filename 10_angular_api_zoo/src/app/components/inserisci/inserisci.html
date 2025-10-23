@@ -1,0 +1,24 @@
+<div class="form-group">
+    <label for="input-specie">Specie</label>
+    <input type="text" class="form-control" [(ngModel)]="spe" id="input-specie">
+</div>
+<div class="form-group">
+    <label for="input-nome">Nome</label>
+    <input type="text" class="form-control" [(ngModel)]="nom" id="input-nome">
+</div>
+<div class="form-group">
+    <label for="input-peso">Peso</label>
+    <input type="number" class="form-control" [(ngModel)]="pes" id="input-peso">
+</div>
+<div class="form-group">
+  <label for="input-peli">Peli</label>
+  <select id="input-peli" [(ngModel)]="pel" class="form-control">
+    <option [ngValue]="true">Sì</option>
+    <option [ngValue]="false">No</option>
+  </select>
+</div>
+<div class="form-group">
+    <label for="input-provenienza">Provenienza</label>
+    <input type="text" class="form-control" [(ngModel)]="pro" id="input-provenienza">
+</div>
+<button type="button" class="btn btn-primary" (click)="salva()">Salva</button>
