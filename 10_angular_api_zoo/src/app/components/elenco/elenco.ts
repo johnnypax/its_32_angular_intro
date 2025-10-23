@@ -22,7 +22,14 @@ export class Elenco {
   }
 
   private Aggiorna(): void {
-    this.lista = this.service.RestituisciTutti();
+    this.service.RestituisciTutti()
+      .then(c => {
+        this.lista = c;
+      })
+      .catch(e => {
+        alert("ERRORE DI COMUNICAZIONE API");
+        console.log(e)
+      });
   }
 
   elimina(id?: number) {

@@ -18,25 +18,32 @@ export class Inserisci {
   pel?: boolean;
   pro?: string;
 
-  constructor(private service: AnimaleService, private router: Router){
+  constructor(private service: AnimaleService, private router: Router) {
 
   }
 
-  salva(): void{
+  salva(): void {
     let ani = new Animale();
     ani.specie = this.spe;
     ani.nome = this.nom;
-    ani.peso =this.pes;
+    ani.peso = this.pes;
     ani.hasPeli = this.pel;
     ani.provenienza = this.pro;
 
-    if(this.service.Inserisci(ani)){
-      alert("Stappoooo")
-      this.router.navigateByUrl("elenco")
-    }
-      
-    else
-      alert("Errore")
+    this.service.Inserisci(ani).then(ris => {
+      if (ris) {
+        alert("Stappoooo")
+        this.router.navigateByUrl("elenco")
+      }
+      else
+        alert("Errore")
+    })
+      .catch(e => {
+        alert("ERRORE DI COMUNICAZIONE API");
+        console.log(e)
+      });
+
+
   }
 
 }
